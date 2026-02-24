@@ -78,6 +78,9 @@ Runtime requirements:
 
 ## Download Compiled Package
 
+Important: **Do not run a standalone exe without `_internal`**.  
+The app requires the full portable directory (`DMS Test Studio` + `_internal`) to run.
+
 Because GitHub API limits large single-file upload in this environment, the full Windows package is uploaded in split parts under `release_parts/`.
 
 Windows merge command:
@@ -87,6 +90,10 @@ copy /b DMS_Test_Studio_Windows_1.0.0.zip.part01+DMS_Test_Studio_Windows_1.0.0.z
 ```
 
 After merge, unzip `DMS_Test_Studio_Windows_1.0.0.zip` and run `DMS Test Studio.exe`.
+
+One-click option:
+
+- Run `release_parts/restore_and_run.bat`
 
 ---
 
