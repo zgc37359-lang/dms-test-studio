@@ -81,7 +81,15 @@ Runtime requirements:
 Important: **Do not run a standalone exe without `_internal`**.  
 The app requires the full portable directory (`DMS Test Studio` + `_internal`) to run.
 
-Because GitHub API limits large single-file upload in this environment, the full Windows package is uploaded in split parts under `release_parts/`.
+Primary download (recommended):
+
+- https://github.com/zgc37359-lang/dms-test-studio/releases/download/v1.0.0/DMS_Test_Studio_Windows_1.0.0.zip
+
+Release page:
+
+- https://github.com/zgc37359-lang/dms-test-studio/releases/tag/v1.0.0
+
+Backup method (split parts under `release_parts/`):
 
 Windows merge command:
 
