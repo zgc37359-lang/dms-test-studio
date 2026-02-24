@@ -76,6 +76,20 @@ Runtime requirements:
 
 ---
 
+## Download Compiled Package
+
+Because GitHub API limits large single-file upload in this environment, the full Windows package is uploaded in split parts under `release_parts/`.
+
+Windows merge command:
+
+```bat
+copy /b DMS_Test_Studio_Windows_1.0.0.zip.part01+DMS_Test_Studio_Windows_1.0.0.zip.part02+DMS_Test_Studio_Windows_1.0.0.zip.part03+DMS_Test_Studio_Windows_1.0.0.zip.part04 DMS_Test_Studio_Windows_1.0.0.zip
+```
+
+After merge, unzip `DMS_Test_Studio_Windows_1.0.0.zip` and run `DMS Test Studio.exe`.
+
+---
+
 ## Free Edition
 
 Included in current release:
