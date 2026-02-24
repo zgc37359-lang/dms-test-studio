@@ -1,0 +1,32 @@
+name: Publish Release Asset
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "release_parts/DMS_Test_Studio_Windows_1.0.0.zip.part01"
+      - "release_parts/DMS_Test_Studio_Windows_1.0.0.zip.part02"
+      - "release_parts/DMS_Test_Studio_Windows_1.0.0.zip.part03"
+      - "release_parts/DMS_Test_Studio_Windows_1.0.0.zip.part04"
+      - ".github/workflows/publish_release_asset.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Merge split package
+        run: |
+          cat             release_parts/DMS_Test_Studio_Windows_1.0.0.zip.part01             release_parts/DMS_Test_Studio_Windows_1.0.0.zip.part02             release_parts/DMS_Test_Studio_Windows_1.0.0.zip.part03             release_parts/DMS_Test_Studio_Windows_1.0.0.zip.part04             > DMS_Test_Studio_Windows_1.0.0.zip
+          ls -lh DMS_Test_Studio_Windows_1.0.0.zip
+
+      - name: Upload ZIP to release v1.0.0
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload v1.0.0 DMS_Test_Studio_Windows_1.0.0.zip --clobber --repo ${{ github.repository }}
